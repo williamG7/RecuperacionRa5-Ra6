@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+:Usuarios: as user
+:Usuario NO registrado: as NO
+:Usuario Registrado: as regist
+:Bibliotecario: as biblio
+:Administrador: as admin
+:Altos cargos: as upp
+
+NO --> user
+regist --> user
+biblio --> regist
+admin --> biblio
+biblio --> upp
+admin --> upp
+
+rectangle Sistema_de_reservas_de_una_biblioteca {
+    user --> (consulta del catalogo)
+    user --> (busqueda por autor)
+
+    NO --> (Alta de usuario)
+
+    regist --> (gestion de usuario propio)
+    regist --> (realizar una reserva)
+    regist --> (renovacion de un prestamo y ver historial de prestamo)
+    regist --> (gestionar su lista de favoritos)
+    regist --> (comentar en la documentacion)
+
+    upp --> (Gestion de la documentacion)
+    upp --> (Gestion del autor)
+    upp --> (Gestion de las noticias y eliminacion de ellas)
+
+    admin --> (Baja de usuarios, documentacion y autor)
+    admin --> (modificar los tipos de usuarios)
+}
+@enduml
