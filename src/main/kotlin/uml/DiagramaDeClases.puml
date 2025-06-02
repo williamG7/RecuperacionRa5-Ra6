@@ -2,56 +2,53 @@
 'https://plantuml.com/class-diagram
 
 class Usuaris {
-    --Metodes--
+    -- Metodes --
     + consultaCataleg()
     + cercaPerAutor()
 }
 
+class UsuarisNoRegistrats {
+    -- Metodes --
+    + demanarAlta()
+}
+
 class UsuarisRegistrats {
-    --Atributs--
+    -- Atributs --
     - nom : String
     - dni : String
     - correu : String
     - contrasenya : String
-    --Metodes--
+    -- Metodes --
     + gestioUsuari()
     + ferReserva()
-    + renovacioPrestec()
-    + veureHistorialPrestec()
-    + gestioLlistaPreferits()
-    + comentarEnDocumentacio()
-}
-
-class NouUsuari {
-    --Metodes--
-    + AltaUsuari()
-}
-
-class AltsMandos {
-    --Metodes--
-    + AltaDocumentacio()
-    + ModificacioDocumentacio()
-    + AltaAutor()
-    + ModificacioAutor()
-    + AltaNoticies()
-    + ModificacioNoticies()
-    + EliminacioNoticies()
+    + renovarPrestec()
+    + veureHistorial()
+    + gestionarPreferits()
+    + afegirComentari()
 }
 
 class Bibliotecari {
+    -- Metodes --
+    + altaDocument()
+    + modificarDocument()
+    + altaAutor()
+    + modificarAutor()
+    + publicarNoticia()
+    + modificarNoticia()
+    + eliminarNoticia()
 }
 
 class Administrador {
-    --Metodes--
-    + ModificarTipusUsuari()
-    + BaixaUsuari()
-    + BaixaDocument()
-    + BaixaAutor()
+    -- Metodes --
+    + modificarTipusUsuari()
+    + baixaUsuari()
+    + baixaDocument()
+    + baixaAutor()
 }
 
-NouUsuari -|> Usuaris
+Usuaris <|-- UsuarisNoRegistrats
 Usuaris <|-- UsuarisRegistrats
-UsuarisRegistrats <|-- AltsMandos
-AltsMandos <|-- Bibliotecari
-AltsMandos <|-- Administrador
+UsuarisRegistrats <|-- Bibliotecari
+Bibliotecari <|-- Administrador
+
 @enduml
