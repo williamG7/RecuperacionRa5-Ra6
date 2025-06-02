@@ -8,32 +8,31 @@ left to right direction
 :Usuario Registrado: as regist
 :Bibliotecario: as biblio
 :Administrador: as admin
-:Altos cargos: as upp
 
 NO --> user
 regist --> user
 biblio --> regist
 admin --> biblio
-biblio --> upp
-admin --> upp
 
 rectangle Sistema_de_reservas_de_una_biblioteca {
-    user --> (consulta del catalogo)
-    user --> (busqueda por autor)
+    user --> (Consultar catálogo)
+    user --> (Buscar por autor)
 
-    NO --> (Alta de usuario)
+    NO --> (Registrarse)
 
-    regist --> (gestion de usuario propio)
-    regist --> (realizar una reserva)
-    regist --> (renovacion de un prestamo y ver historial de prestamo)
-    regist --> (gestionar su lista de favoritos)
-    regist --> (comentar en la documentacion)
+    regist --> (Gestionar perfil)
+    regist --> (Hacer reserva)
+    regist --> (Renovar préstamo)
+    regist --> (Ver historial)
+    regist --> (Gestionar favoritos)
+    regist --> (Comentar)
 
-    upp --> (Gestion de la documentacion)
-    upp --> (Gestion del autor)
-    upp --> (Gestion de las noticias y eliminacion de ellas)
+    biblio --> (Gestionar documentos)
+    biblio --> (Gestionar autores)
+    biblio --> (Publicar noticias)
 
-    admin --> (Baja de usuarios, documentacion y autor)
-    admin --> (modificar los tipos de usuarios)
+    admin --> (Dar de baja usuarios)
+    admin --> (Dar de baja documentos)
+    admin --> (Modificar permisos)
 }
 @enduml
